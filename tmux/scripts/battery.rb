@@ -1,1 +1,1 @@
-battery_using_ioreg.rb
+battery_using_pmset.rb
