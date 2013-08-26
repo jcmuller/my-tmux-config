@@ -1,31 +1,15 @@
 #!/usr/bin/env ruby
 
+require "#{File.dirname(__FILE__)}/battery_base"
 require 'osx/plist'
 
-class BatteryInfo
-  def output_string
-    "[#{bar(charge)}] #{formatted_charge}#{is_charging? ? " C" : ""}"
-  end
+class BatteryInfoSystemProfiler < BatteryBase
 
-  private
-
-  CHARGE_INFO = "sppower_battery_charge_info"
-  CURRENT_CAPACITY = "sppower_battery_current_capacity"
-  FULLY_CHARGED = "sppower_battery_fully_charged"
-  IS_CHARGING = "sppower_battery_is_charging"
-  MAX_CAPACITY = "sppower_battery_max_capacity"
-
-  def charge
-    bat_info[CURRENT_CAPACITY].to_f / bat_info[MAX_CAPACITY]
-  end
-
-  def bar(ratio)
-    "|" * (ratio * 10).to_i << " " * (10 - (ratio * 10).to_i)
-  end
-
-  def formatted_charge
-    '%.2f%%' % (charge * 100)
-  end
+  BatteryBase::CHARGE_INFO = "sppower_battery_charge_info"
+  BatteryBase::CURRENT_CAPACITY = "sppower_battery_current_capacity"
+  BatteryBase::FULLY_CHARGED = "sppower_battery_fully_charged"
+  BatteryBase::IS_CHARGING = "sppower_battery_is_charging"
+  BatteryBase::MAX_CAPACITY = "sppower_battery_max_capacity"
 
   def is_charging?
     bat_info[IS_CHARGING] == "TRUE"
@@ -35,7 +19,6 @@ class BatteryInfo
     @bat_info ||= OSX::PropertyList.load(`system_profiler -xml SPPowerDataType`)[0]\
       ["_items"][0][CHARGE_INFO]
   end
-
 end
 
-puts BatteryInfo.new.output_string
+puts BatteryInfoSystemProfiler.new.output_string
