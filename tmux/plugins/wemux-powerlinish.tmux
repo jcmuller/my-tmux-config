@@ -7,11 +7,13 @@ set -g status-right-length 150
 # set -g window-status-current-format "#[fg=#d6d6d6,bg=#afafaf]#[fg=#666666,bg=#afafaf,noreverse,nobold] #I  #W #[fg=#afafaf,bg=#d6d6d6,nobold]"
 # set -g status-right '#[fg=#afafaf,bg=#d9d9d9,nobold]#[fg=#666666,bg=#afafaf] #(~/.tmux/scripts/basic-cpu-and-memory.py) #[fg=#1564a7,bg=#afafaf,nobold]#[fg=white,bg=#1564a7] %a %b %d %I:%M %p  Bat: #(~/.tmux/scripts/battery.rb)'
 
+# ASCII
 # set -g status-left '#[fg=white,bg=#1564a7,bold] ❐ #S #[fg=#1564a7,bg=#afafaf,nobold]>#[fg=#666666,bg=#afafaf,bold] #(whoami) #[fg=#afafaf,bg=#d6d6d6,nobold]>'
 # set -g window-status-format "#[bg=#d6d6d6] #I #W "
 # set -g window-status-current-format "#[fg=#d6d6d6,bg=#afafaf]>#[fg=#666666,bg=#afafaf,noreverse,nobold] #I #W #[fg=#afafaf,bg=#d6d6d6,nobold]>"
 # set -g status-right ''
 
+# POWERLINE
 set -g status-left '#[fg=white,bg=#1564a7,bold] ❐ #S #[fg=#1564a7,bg=#afafaf,nobold]#[fg=#666666,bg=#afafaf,bold] #(whoami) #[fg=#afafaf,bg=#d6d6d6,nobold]'
 set -g window-status-format "#[bg=#d6d6d6]  #I  #W  "
 set -g window-status-current-format "#[fg=#d6d6d6,bg=#afafaf]#[fg=#666666,bg=#afafaf,noreverse,nobold] #I  #W #[fg=#afafaf,bg=#d6d6d6,nobold]"
